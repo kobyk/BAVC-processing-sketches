@@ -1,0 +1,124 @@
+
+//character template
+
+//setup
+
+float mx;
+float my;
+float easing = 0.05;
+int radius = 24;
+int edge = 56;
+int inner = edge + radius;
+
+
+
+void setup()
+{
+  size(350, 350); 
+  int value = 0;
+  smooth();
+  strokeWeight(5);
+  noStroke();
+  ellipseMode(RADIUS);
+  rectMode(CORNERS);
+}
+
+
+//draw loop
+void draw()
+{
+  background(0, 102, 204);
+  jumpingjackguy();
+}
+
+
+
+{
+  fill(204, 102, 0);
+  if(mousePressed == true) {
+    fill(0, 46, 184);
+  } 
+  else {
+    fill(255, 0, 0);
+  }  
+  ellipse( x, y, scale, scale);
+  fill(0);
+  ellipse( x, y, 5, 5);
+}
+
+
+// character function
+void jumpingjackguy()
+{
+
+
+
+  fill(0, 102, 0); // bodycolor
+  ellipse( width / 2, height / 6, 100, 100);
+
+  fill(0, 255, 255);
+  ellipse( width/2, height/6, 9, 9);
+
+
+  float x = width / 2;
+  float y = height / 2;
+  if(mousePressed == true) {
+    fill(255, 0, 0);
+  } 
+  else {
+    fill(0, 46, 184);
+  }
+
+
+
+  if (abs(mouseX - mx) > 0.1) {
+    mx = mx + (mouseX - mx) * easing;
+  }
+  if (abs(mouseY - my) > 0.1) {
+    my = my + (mouseY- my) * easing;
+  }
+
+  mx = constrain(mx, inner, width - inner);
+  my = constrain(my, inner, height - inner);
+  fill(76);
+  rect(edge, edge, width-edge, height-edge);
+  fill(255);  
+  ellipse(mx, my, radius, radius);
+
+
+
+//rect(height / 2.25, width / 5, 40, 10);
+
+if(mousePressed) {
+  fill(0, 0,255);
+  println(mouseX + " " + mouseY);
+}
+
+else {
+
+  fill(0, 255, 0);
+
+  rect(width/3, height/3.30, 100, 100);
+
+
+
+  pushMatrix();
+  translate(110, 108);
+  point(30, 20);
+  point(85, 20);
+  point(85, 75);
+  point(30, 75);
+
+  popMatrix();
+
+
+  // println("begin");
+  float f = 0.3;
+  //println("f is equal to " + f + " and i is equal to " + 1024);
+  String s = "end";
+  //println(s);
+}
+}
+
+
+
